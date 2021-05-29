@@ -27,7 +27,7 @@ def short():
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x', 'y', 'z']
 
     while len(f) < 6:
-        v = random.randint(0, 101)
+        v = random.randint(0, 100)
         if v > 50:
             f += alphabet[random.randint(0, len(alphabet) - 1)]
         else:
