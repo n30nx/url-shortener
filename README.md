@@ -31,7 +31,7 @@ And that's it :)
 
 ## Customization
 
-- You can write a css file and include it in the base.html \
+- You can write a css file and include it in the base.html
 - You can change the port of the server: \
   Just change the port option from the file
 ```python
