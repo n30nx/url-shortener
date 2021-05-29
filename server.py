@@ -38,7 +38,9 @@ def short():
 @app.route('/', methods = ['GET', 'POST'])
 def main():
 
+    urls = shortener.query.order_by(shortener.url_short).all()
     l = flask.request.args.get('s')
+    
 
     if l != None:
         try:
@@ -46,7 +48,7 @@ def main():
             return flask.redirect(site.redirect_url)
 
         except:
-            return flask.render_template('index.html')
+            return flask.render_template('index.html', urls=urls)
 
 
     else:
@@ -74,13 +76,12 @@ def main():
             
         else:
             try:
-                urls = shortener.query.order_by(shortener.id).all()
                 return flask.render_template('index.html', urls=urls)
             except Exception as e:
                 print(e)
                 
     
-    urls = shortener.query.order_by(shortener.url_short).all()
+    
     return flask.render_template('index.html', urls=urls)
 
 
