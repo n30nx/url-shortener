@@ -17,8 +17,11 @@ Flask based url shortener
 ## Installation
 
 ```console
+# Clone the repo
 $ git clone https://github.com/n30nx/url-shortener.git
+# Change directory to url-shortener
 $ cd url-shortener
+# Install the requirements
 $ pip install -r requirements.txt
 ```
 
