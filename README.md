@@ -2,8 +2,8 @@
 Flask based url shortener
 
 <p align="left" style="vertical-align: top;">
-  <a target="_blank" href="https://www.python.org/downloads/" title="Written in"><img src="https://img.shields.io/badge/python->=_3.9.5-orange.svg"></a>
-  <a target="_blank" href=https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html title="GPL V2 License"><img src="https://img.shields.io/badge/License-GPL%20v2-purple.svg"></a>
+  <a target="_blank" href="https://www.python.org/downloads/" title="Written in"><img src="https://img.shields.io/badge/python->=_3.9.5-white.svg"></a>
+  <a target="_blank" href=https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html title="GPL V2 License"><img src="https://img.shields.io/badge/License-GPL%20v2-white.svg"></a>
 </p>
 
 <p align="center">
