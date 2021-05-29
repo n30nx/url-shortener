@@ -11,7 +11,7 @@
     {% else %}
         {% for i in urls %}
             <tr>
-                <td><a href="http://127.0.0.1:80/{{ i.url_short }}">{{ i.redirect_url }}&nbsp;&nbsp;</a></td>
+                <td><a href="http://127.0.0.1:80/?s={{ i.url_short }}">{{ i.redirect_url }}&nbsp;&nbsp;</a></td>
                 <td>{{ i.url_short }}</td>
                 <br>
             </tr>
