@@ -11,12 +11,12 @@ Flask based url shortener
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#usage">Usage</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#customization">Usage</a>
+  <a href="#customization">Customization</a>
 </p>
 
 ## Installation
 
-```bash
+```console
 $ git clone https://github.com/n30nx/url-shortener.git
 $ cd url-shortener
 $ pip install -r requirements.txt
@@ -24,16 +24,16 @@ $ pip install -r requirements.txt
 
 ## Usage
 
-```bash
+```console
 $ python3 server.py
 ```
 And that's it :)
 
 ## Customization
 
--You can write a css file and include it in the base.html
--You can change the port of the server:
-Just change the port from last line
+-You can write a css file and include it in the base.html \
+-You can change the port of the server: \
+Just change the port option from the file
 ```python
 if __name__ == "__main__":
 
