@@ -48,7 +48,7 @@ def main():
             return flask.redirect(site.redirect_url)
 
         except:
-            return flask.render_template('index.html', urls=urls)
+            return flask.render_template('404.html')
 
 
     else:
