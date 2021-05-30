@@ -32,6 +32,7 @@ $ pip install -r requirements.txt
 ```console
 $ python3 server.py
 ```
+
 And that's it :)
 
 ## Customization
@@ -43,4 +44,9 @@ And that's it :)
 if __name__ == "__main__":
 
     app.run(debug = True, port = 5000)
+```
+- If you want to reset your url database just remove the urls.db file and run create_database.py:
+```console
+$ rm urls.db
+$ python3 create_database.py
 ```
