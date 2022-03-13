@@ -42,7 +42,7 @@ def main():
     l = flask.request.args.get('s')
     
 
-    if l != None:
+    if l is not None:
         try:
             site = shortener.query.filter_by(url_short=str(l)).first()
             return flask.redirect(site.redirect_url)
