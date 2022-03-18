@@ -41,8 +41,7 @@ And that's it :)
 &nbsp;&nbsp;&nbsp;Just change the port option from the file
 ```python
 if __name__ == "__main__":
-
-    app.run(debug = True, port = 5000)
+    app.run(debug=True, port=5000)
 ```
 - If you want to reset your url database just remove the urls.db file and run create_database.py:
 ```console
