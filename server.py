@@ -1,71 +1,69 @@
-from flask_sqlalchemy import SQLAlchemy 
+from flask_sqlalchemy import SQLAlchemy
 import flask
 import random
+
 
 app = flask.Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///urls.db'
 db = SQLAlchemy(app)
 
-f = ""
 
 class shortener(db.Model):
 
-
-    id = db.Column(db.Integer, primary_key = True)
-    url_short = db.Column(db.String(300), nullable = False)
-    redirect_url = db.Column(db.String(300), nullable = False)
-
+    id = db.Column(db.Integer, primary_key=True)
+    url_short = db.Column(db.String(300), nullable=False)
+    redirect_url = db.Column(db.String(300), nullable=False)
 
     def __repr__(self):
 
         return '<url %r>' % self.id
 
+
 def short():
 
-    global f
+    return_val = ""
 
-    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x', 'y', 'z']
+    alphabet = [chr(i) for i in range(97, 123)]
 
-    while len(f) < 6:
-        v = random.randint(0, 100)
-        if v > 50:
-            f += alphabet[random.randint(0, len(alphabet) - 1)]
+    while len(return_val) < 6:
+        rand = random.randint(0, 100)
+        if rand > 50:
+            return_val += alphabet[random.randint(0, len(alphabet) - 1)]
         else:
-            f += str(random.randint(0,9))
+            return_val += str(random.randint(0, 9))
 
-    return f
+    return return_val
 
-@app.route('/', methods = ['GET', 'POST'])
+
+@app.route('/', methods=['GET', 'POST'])
 def main():
 
     urls = shortener.query.order_by(shortener.url_short).all()
-    l = flask.request.args.get('s')
-    
+    short_url = flask.request.args.get('s')
 
-    if l is not None:
-        try:
-            site = shortener.query.filter_by(url_short=str(l)).first()
+    if short_url is not None:
+        site = shortener.query.filter_by(
+                    url_short=short_url
+               ).first()
+
+        if site is not None:
             return flask.redirect(site.redirect_url)
 
-        except:
+        else:
             return flask.render_template('404.html')
 
-
     else:
-
         if flask.request.method == 'POST':
             url_content = flask.request.form['content']
-            while 1:
+            while True:
                 s = short()
-                x = shortener.query.filter_by(url_short=s).first()
-                if x == None:
+                q = shortener.query.filter_by(url_short=s).first()
+                if q is None:
                     break
                 else:
                     continue
 
-
-
-            new_content = shortener(url_short = s , redirect_url = url_content)
+            new_content = shortener(url_short=s, redirect_url=url_content)
 
             try:
                 db.session.add(new_content)
@@ -73,18 +71,12 @@ def main():
                 return flask.redirect('/')
             except Exception as e:
                 print(e)
-            
+
         else:
-            try:
-                return flask.render_template('index.html', urls=urls)
-            except Exception as e:
-                print(e)
-                
-    
-    
+            return flask.render_template('index.html', urls=urls)
+
     return flask.render_template('index.html', urls=urls)
 
 
 if __name__ == "__main__":
-
-    app.run(debug = True, port = 5000)
+    app.run(debug=True, port=5000)
