@@ -9,10 +9,10 @@
     {% if urls|length < 1 %}
     <h4 style="text-align: center">There is nothing.</h4>
     {% else %}
-        {% for i in urls %}
+        {% for url in urls %}
             <tr>
-                <td><a href="/?s={{ i.url_short }}" target="_blank">{{ i.redirect_url }}</a></td>
-                <td>&nbsp;&nbsp;{{ i.url_short }}</td>
+                <td><a href="/?s={{ url.url_short }}" target="_blank">{{ url.redirect_url }}</a></td>
+                <td>&nbsp;&nbsp;{{ url.url_short }}</td>
                 <br>
             </tr>
         {% endfor %}
