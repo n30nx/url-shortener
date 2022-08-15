@@ -7,6 +7,8 @@ app = flask.Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///urls.db'
 db = SQLAlchemy(app)
 
+alphabet = [chr(i) for i in range(97, 123)]
+
 
 class shortener(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -15,7 +17,7 @@ class shortener(db.Model):
 
     def __repr__(self):
         return '<url %r>' % self.id
-
+    
 
 def short() -> str:
     global alphabet
