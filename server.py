@@ -20,17 +20,7 @@ class shortener(db.Model):
     
 
 def short() -> str:
-    global alphabet
-    return_val = ""
-
-    while len(return_val) < 6:
-        rand = random.randint(0, 100)
-        if rand > 50:
-            return_val += alphabet[random.randint(0, len(alphabet) - 1)]
-        else:
-            return_val += str(random.randint(0, 9))
-
-    return return_val
+    return "".join(random.sample(alphabet, 6))
 
 
 @app.route('/', methods=['GET', 'POST'])
